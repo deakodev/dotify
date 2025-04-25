@@ -8,9 +8,10 @@ import (
 )
 
 func replRun() {
+	commandMapInit()
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
-		fmt.Printf("Remedy > ")
+		fmt.Printf("\nRemedy > ")
 		scanner.Scan()
 
 		if err := scanner.Err(); err != nil {
@@ -26,7 +27,6 @@ func replRun() {
 
 		cleanText := cleanInput(text)
 		command := cleanText[0]
-		fmt.Printf("Command: %s\n", command)
 
 		handler := commandMap[command].callback
 		if handler == nil {
@@ -44,24 +44,4 @@ func replRun() {
 
 func cleanInput(text string) []string {
 	return strings.Fields(strings.ToLower(text))
-}
-
-func commandExit() error {
-	fmt.Printf("Exiting remedy...")
-	os.Exit(0)
-	return nil
-}
-
-type command struct {
-	name        string
-	description string
-	callback    func() error
-}
-
-var commandMap = map[string]command{
-	"exit": {
-		name:        "exit",
-		description: "Exit remedy.",
-		callback:    commandExit,
-	},
 }
