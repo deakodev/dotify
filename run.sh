@@ -1,1 +1,1 @@
-go run . | tee repl.log
+go run . | tee out/tangle.log
