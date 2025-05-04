@@ -7,11 +7,27 @@ type Registry struct {
 	activeID ID
 }
 
-func (r *Registry) Add(strict bool, t, id string) {
-	if _, exists := r.graphs[ID(id)]; exists {
-		return
+func (r *Registry) Make(strict bool, t, id string) error {
+	if t != "graph" && t != "digraph" {
+		return fmt.Errorf("invalid graph type: %q (expected 'graph' or 'digraph')", t)
 	}
-	r.graphs[ID(id)] = makeGraph(strict, GraphType(t), ID(id))
+
+	if id == "" {
+		return fmt.Errorf("graph name is required")
+	}
+
+	if _, exists := r.graphs[ID(id)]; exists {
+		return fmt.Errorf("graph %q already exists", id)
+	}
+
+	r.graphs[ID(id)] = Make(strict, GraphType(t), ID(id))
+	r.activeID = ID(id)
+	return nil
+}
+
+func (r *Registry) Add(graph *Graph) {
+	r.graphs[graph.Name()] = graph
+	r.activeID = graph.Name()
 }
 
 func (r *Registry) Active() (*Graph, error) {

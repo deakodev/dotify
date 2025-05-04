@@ -61,7 +61,7 @@ func TestEdgeStmtString(t *testing.T) {
 
 func TestAttrStmtString(t *testing.T) {
 	stmt := AttrStmt{
-		target: GraphTarget,
+		target: AttrTargetGraph,
 		attrList: AttrList{
 			{ID("rankdir"), ID("LR")},
 		},
@@ -79,7 +79,7 @@ func TestGraphString(t *testing.T) {
 		strict: true,
 		stmtList: []Stmt{
 			AttrStmt{
-				target: GraphTarget,
+				target: AttrTargetGraph,
 				attrList: AttrList{
 					{ID("rankdir"), ID("LR")},
 				},
