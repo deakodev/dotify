@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/deakodev/go-dotify/dot"
+	"github.com/deakodev/dotify/dot"
 	"github.com/emirpasic/gods/trees/btree"
 )
 

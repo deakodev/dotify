@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/deakodev/go-dotify"
-	"github.com/deakodev/go-dotify/dot"
+	"github.com/deakodev/dotify"
+	"github.com/deakodev/dotify/dot"
 )
 
 func init() {

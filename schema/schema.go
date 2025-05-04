@@ -3,7 +3,7 @@ package schema
 import (
 	"encoding/json"
 
-	"github.com/deakodev/go-dotify/dot"
+	"github.com/deakodev/dotify/dot"
 )
 
 type Schema interface {

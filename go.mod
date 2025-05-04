@@ -1,4 +1,4 @@
-module github.com/deakodev/go-dotify
+module github.com/deakodev/dotify
 
 go 1.24.2
 

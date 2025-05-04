@@ -3,7 +3,7 @@ package dotify
 import (
 	"fmt"
 
-	"github.com/deakodev/go-dotify/dot"
+	"github.com/deakodev/dotify/dot"
 )
 
 // USER DEFINED INTERFACE
